@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Kindle to Markdown Exporter",
+  "version": "1.0",
+  "description": "Export purchased Kindle books from read.kindle.com to Markdown format",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://read.kindle.com/*",
+    "https://read.amazon.com/*",
+    "https://read.amazon.co.jp/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://read.kindle.com/*",
+        "https://read.amazon.com/*",
+        "https://read.amazon.co.jp/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
